@@ -59,7 +59,6 @@ $ git config --unset 설정명
 `refactor:` 코드 리팩토링
 
 `fix:` 버그 수정
-<<<<<<< HEAD
 
 `conf:` 환경설정 관련
 
@@ -93,5 +92,3 @@ test: User model CRUD test complete
 
 * GNU General Public License v3.0
 	* 가장 많이 알려져있으며 의무사항(해당 라이센스가 적용된 소스코드 사용 시 GPL을 따라야함)이 존재합니다.
-=======
->>>>>>> 79290cff8118c0c6b2f978880e24bbcd432fcb4e
