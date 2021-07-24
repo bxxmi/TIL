@@ -171,7 +171,6 @@ $ git log
 ```
 $ git push 원격저장소명 브랜치명
 $ git push origin main
-
 ```
 
 # Pull
