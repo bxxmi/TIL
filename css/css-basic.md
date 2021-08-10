@@ -10,6 +10,10 @@
 * [CSS 상속](#CSS-상속)
 * [CSS 우선순위](#CSS-우선순위)
 * [CSS 속성](#CSS-Attribute)
+* [Position](#Position)
+* [요소 쌓임 순서](#요소-쌓임-순서)
+* [Flex](#Flex)
+* [Easing function](#Easing-function)
 
 ***
 
@@ -302,3 +306,9 @@ flex-items의 위치를 정렬하고 싶을 때, `flex-container(=display:flex �
 `flex-shrink` : 각 요소들의 너비 감소 비율을 명시하며 기본 값은 '1'입니다. flex-container 너비가 줄어든다면 그만큼 요소들의 크기도 자동으로 일그러진 모양으로 작아집니다. 이렇게 되는 이유는 기본 값으로 1이 설정되어 있기 때문입니다. 따라서, `'0'`을 설정하여 flex-container 너비에 상관없이 요소들의 크기가 일정하게 유지됩니다.
 
 `flex-basis` : flex-item 요소 안의 글씨가 적혀진 content 공간의 기본 너비를 지정하는 속성입니다. 기본 값은 `auto` 이며 px, em, rem 등 여러 단위로 지정할 수 있습니다. '0'을 값으로 지정하면 시각적으로 정확한 비율로 요소가 정렬되는 것을 확인할 수 있습니다. 
+
+# Easing function
+
+https://easings.net/ko
+
+https://greensock.com/docs/v2/Easing
