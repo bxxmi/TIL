@@ -1,24 +1,19 @@
 # CSS 정리
 
 * [경로](#경로)
-
 * [HTML 요소](#HTML-요소)
-
 * [선언 방식](#CSS-선언-방식)
-
 * [복합 선택자](#CSS-Combinators)
-
 * [가상 클래스 선택자](#CSS-Pseudo-class-Selector)
-
 * [가상 요소 선택자](#CSS-Pseudo-element-Selector)
-
 * [속성 선택자](#CSS-Attribute-Selector)
-
 * [CSS 상속](#CSS-상속)
-
 * [CSS 우선순위](#CSS-우선순위)
-
 * [CSS 속성](#CSS-Attribute)
+* [Position](#Position)
+* [요소 쌓임 순서](#요소-쌓임-순서)
+* [Flex](#Flex)
+* [Easing function](#Easing-function)
 
 ***
 
@@ -255,3 +250,65 @@ span::after { content:"이후"; }
 `grid` : 2차원 레이아웃입니다.
 
 `none` : 화면에 출력되지 않도록 합니다.
+
+# Position
+
+요소의 위치를 지정하는 기준을 잡아주며 top, bottom, right, z-index 속성과 같이 사용됩니다.
+
+* relative
+
+자기 자신을 기준으로 요소를 배치하며 실무에서는 단지 `기준`을 잡는 용도로만 사용됩니다.
+
+* absolute
+
+위치 상 부모 요소를 기준으로 요소를 배치합니다. 해당 값을 부여하면 기존에 연관된 요소들과의 상호작용이 깨지게 됩니다.
+
+> 💡 absolute는 해당 요소의 부모 요소에다가 relative 값을 부여하여 부모 요소의 위치를 기준으로 잡고 사용해야 합니다.
+
+* fixed
+
+뷰포트(=브라우저)를 기준으로 요소를 배치하며 스크롤 이동 시 화면에 그대로 고정되어 나타납니다. absolute와 마찬가지로 해당 값이 부여되면 기존에 연관되어 있던 요소들과의 상호작용이 깨지게 됩니다.
+
+> 💡 position 속성 값으로 absolute, fixed가 지정된 요소는 자동으로 `display:block` 속성으로 변경됩니다.
+
+# 요소 쌓임 순서
+
+1) 요소에 position 속성 값이 있는 경우 제일 위에 쌓입니다.
+2) position 속성을 가지고 있는 요소들 중 z-index 속성이 부여되고 그 값이 높을 수록 제일 위에 쌓입니다.
+3) 1,2 조건이 모두 같은 요소들 경우 HTML 구조 상 마지막에 위치한 요소가 제일 위에 쌓입니다.
+
+# Flex
+
+요소를 `수평 정렬`을 하고 싶은 경우 해당 요소의 부모 요소에 `display:flex`를 작성하면 됩니다. 해당 속성과 값을 적용한 요소가 `flex-container`가 되며, 그 요소의 자식 요소들은 `flex-items`가 됩니다.
+
+* flex-container 속성들
+
+flex-items의 위치를 정렬하고 싶을 때, `flex-container(=display:flex 속성이 부여된 요소)`에서 설정하면 됩니다.
+
+`display` : 수직으로 쌓여 블록 요소처럼 동작하도록 정의하는 `flex`, 수평으로 쌓여 인라인 요소처럼 동작하도록 정의하는 `inline-flex` 값이 존재합니다.
+
+`flex-direction` : 요소의 수평, 수직 방향을 설정하는 속성입니다. 기본 값은 `row`이며, 오른쪽에서 왼쪽으로 정렬하는 값은 `row-reverse`입니다. 또한, 수직 정렬의 기본 값은 `column`이고 아래에서 위로 수직 정렬하는 값은 `column-reverse`입니다.
+
+`flex-wrap` : flex-items로 정의된 자식 요소들을 줄 바꿈하여 나타낼 것인지 설정하는 속성입니다. 요소들이 컨테이너의 width 사이즈를 넘기는 경우 사용하면 좋은 속성입니다. 기본 값은 줄 바꿈을 사용하지 않는 `nowrap`이며, 여러 줄로 줄 바꿈을 하는 값은 `wrap`입니다.
+
+`justify-content` : `수평 정렬`에 대한 개념이라고 생각하면 쉽습니다. 왼쪽 정렬을 나타내며 기본 값인 `flex-start`, 오른쪽 정렬인 `flex-end`, 중앙 정렬인 `center`값이 있습니다.
+
+`align-content` : 수직 축의 여러 줄 정렬에 대한 개념이라고 생각하면 쉽습니다. 해당 속성을 사용하기 위해서는 `flex-wrap:wrap` 속성과 값이 정의됐어야 하고, 정렬이 가능한 여백이 있어야지만 동작합니다. 그러나 여러 줄을 하나의 그룹으로 묶어서 정렬되기 때문에 활용도가 낮습니다.
+
+`align-items` : 수직 축의 한 줄 정렬 방법에 대한 개념입니다. 값은 align-content와 동일하며 마찬가지로 flex-wrap:wrap 속성과 값이 정의되어야 사용할 수 있습니다. 정렬된 한 줄마다 속성을 부여할 수 있기 때문에 매우 유용한 속성입니다. 
+
+* flex-items 속성들
+
+`order` : 요소들이 정렬되는 순서를 정해줍니다. 기본 값은 '0'이고 숫자가 작을수록 맨 앞에 위치하게 됩니다. (음수가능)
+
+`flex-grow` : 각 요소들의 너비 증가 비율을 명시하며 기본 값은 '0'입니다.
+
+`flex-shrink` : 각 요소들의 너비 감소 비율을 명시하며 기본 값은 '1'입니다. flex-container 너비가 줄어든다면 그만큼 요소들의 크기도 자동으로 일그러진 모양으로 작아집니다. 이렇게 되는 이유는 기본 값으로 1이 설정되어 있기 때문입니다. 따라서, `'0'`을 설정하여 flex-container 너비에 상관없이 요소들의 크기가 일정하게 유지됩니다.
+
+`flex-basis` : flex-item 요소 안의 글씨가 적혀진 content 공간의 기본 너비를 지정하는 속성입니다. 기본 값은 `auto` 이며 px, em, rem 등 여러 단위로 지정할 수 있습니다. '0'을 값으로 지정하면 시각적으로 정확한 비율로 요소가 정렬되는 것을 확인할 수 있습니다. 
+
+# Easing function
+
+https://easings.net/ko
+
+https://greensock.com/docs/v2/Easing
