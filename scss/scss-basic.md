@@ -6,6 +6,7 @@
 * [중첩선언](#중첩-선언)
 * [선택자 참조](#선택자-참조)
 * [믹스인(재사용)](#mixin)
+* [반복문](#반복문)
 
 # 개요
 
@@ -229,5 +230,43 @@ mixin은 인수를 지정할 수 있고, 해당 인수에 <b>기본 값</b>을 �
   display: flex;
   justify-content: center;
   align-center: center;
+}
+```
+
+# 반복문
+
+SCSS에서 <b>`@for`</b> 키워드를 사용해서 반복되는 작업을 처리할 수 있다.
+
+<h3><b>📌 선언 및 적용 방식</b></h3>
+
+```scss
+// 기본 선언 방식
+@for 변수 from n through m { ... }
+
+// 적용 예시
+@for $i from 1 through 10 { 
+  .box {
+    width: 100px;
+  }
+}
+```
+
+위 예시처럼 사용해도 되지만 SCSS에서 <b>`#{변수}`</b>처럼 문자보간 기법을 사용해서 조금 더 유용하게 사용할 수 있다.
+
+```scss
+@for $i from 1 through 10 {
+  .box:nth-child(#{$i}) {
+    width: 100px;
+  }
+}
+```
+
+반복문의 변수를 이용해서 산술 연산도 가능하다.
+
+```scss
+@for $i from 1 through 10 {
+  .box:nth-child(#{$i}) {
+    width: 100px * $i;
+  }
 }
 ```
