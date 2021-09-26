@@ -2,11 +2,14 @@
 
 * [SCSS란?](#개요)
 * [환경설정](#환경설정)
+* [파일 가져오기](#SCSS-파일-연결하기)
 * [변수선언](#변수-선언)
 * [중첩선언](#중첩-선언)
 * [선택자 참조](#선택자-참조)
 * [믹스인(재사용)](#mixin)
 * [반복문](#반복문)
+* [함수](#함수)
+* [색상 내장 함수](#색상-내장-함수)
 
 # 개요
 
@@ -74,6 +77,18 @@ $ npm i -D parcel-bundler
 <b>`dev`</b> : parcel 개발 서버 실행하는 명령
 
 <b>`build`</b> : index.html을 기준으로 번들링을 시작하는 명령
+
+# SCSS 파일 연결하기
+
+CSS와 큰 차이는 없고 조금 더 간소화된 문법을 사용한다.
+
+```scss
+// 확장자 명시 
+@import "경로/파일명"; 
+
+// 여러 개 연결 시
+@import "경로1/파일명1", "경로2/파일명2";
+```
 
 # 변수 선언
 
@@ -269,4 +284,68 @@ SCSS에서 <b>`@for`</b> 키워드를 사용해서 반복되는 작업을 처리
     width: 100px * $i;
   }
 }
+```
+
+# 함수
+
+값을 연산한 후 반환된 결과를 사용할 때 함수를 쓰며 자바스크립트와 문법이 거의 동일하다.
+
+<h3><b>📌 선언 및 적용 방식</b></h3>
+
+```scss
+@function ratio($size, $ratio) {
+  @return $size * $ratio;
+}
+
+.box {
+  $width: 100px;
+  width: $width;
+  height: ratio($width, 1/2);
+}
+```
+
+# 색상 내장 함수
+
+SCSS는 색상에 관련된 다양한 내장 함수가 존재한다.
+
+<b>`mix(a, b)`</b> : 두 개의 인자가 필요하며, 전달받은 색상을 합친 색상을 반환한다.
+
+```scss
+background-color: mix('red', 'blue'); // 결과: 보라색
+```
+
+<b>`lighten(a, b%)`</b> : a색상이 b%만큼 밝아진다.
+
+```scss
+background-color: lighten('red', 10%);
+```
+
+<b>`darken(a, b%)`</b> : a색상이 b%만큼 어두워진다.
+
+```scss
+background-color: darken('red', 10%);
+```
+
+<b>`saturate(a, b%)`</b> : a색상의 채도가 b%만큼 올라간다.
+
+```scss
+background-color: saturate('red', 10%);
+```
+
+<b>`desaturate(a, b%)`</b> : a색상의 채도가 b%만큼 떨어진다.
+
+```scss
+background-color: desaturate('red', 10%);
+```
+
+<b>`grayscale(a)`</b> : a색상을 회색으로 변경한다.
+
+```scss
+background-color: grayscale('red');
+```
+
+<b>`invert(a)`</b> : a색상을 반전시킨다.
+
+```scss
+background-color: invert('red');
 ```
