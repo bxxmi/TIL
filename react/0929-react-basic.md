@@ -12,6 +12,7 @@ React는 라이브러리이며 <b>`컴포넌트`</b>라는 단위를 사용하�
 <h3><b>📌 리액트 기본 구조</b></h3>
 
 ```jsx
+// 함수형
 import './app.css';
 
 function App() {
@@ -19,6 +20,17 @@ function App() {
 }
 
 export default App;
+
+// 클래스 형
+class app extends Component {
+  render() {
+    return (
+      <div></div>
+    );
+  }
+}
+
+export default app;
 ```
 
 
