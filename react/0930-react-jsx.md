@@ -63,3 +63,9 @@ const element = (
   </React.Fragment>
 );
 ```
+
+⚠️ 주의 할 점 
+
+> JSX는 HTML보다 JavaScript에 가깝기 때문에 ReactDom은 HTML 어트리뷰터 이름 대신 <b>`camelCase`</b> 명명 규칙을 사용한다.
+>
+> 예를 들어, class 프로퍼티는 JSX에서 <b>`className`</b>이 되고, tabindex는 <b>`tabIndex`</b>가 된다.
