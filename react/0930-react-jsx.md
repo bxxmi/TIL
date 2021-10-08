@@ -64,7 +64,7 @@ const element = (
 );
 ```
 
-⚠️ 주의 할 점 
+<h3>⚠️ 주의할 점</h3> 
 
 > JSX는 HTML보다 JavaScript에 가깝기 때문에 ReactDom은 HTML 어트리뷰터 이름 대신 <b>`camelCase`</b> 명명 규칙을 사용한다.
 >
