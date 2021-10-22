@@ -7,6 +7,7 @@
 * [정의](#Webpack-정의)
 * [설치](#Webpack-설치)
 * [개념 및 사용법](#Webpack-주요-개념-및-사용법)
+* [번들 ](#번들-파일-확인)
 
 # Webpack 정의
 
@@ -205,3 +206,8 @@ module.exports = () => {
 }
 ```
 
+# 번들 파일 확인
+
+build 명령을 통해 하나의 번들로 만들어진 파일을 사용자가 보게 되는데, 해당 파일은 build 후 생성된 <b>`dist`</b> 라는 폴더 안의 파일이다. 해당 폴더는 webpack.config.js에서 설정한 Output 경로이다.
+
+<img width="320" alt="스크린샷 2021-10-22 오후 12 07 54" src="https://user-images.githubusercontent.com/56878724/138386995-215dc1cd-c05d-4519-af21-6586e0c6c1d0.png">
