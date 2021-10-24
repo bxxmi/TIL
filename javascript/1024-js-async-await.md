@@ -2,6 +2,10 @@
 
 <b>`async`</b>와 <b>`await`</b>라는 문법을 사용하면 Promise를 좀 더 편하게 사용할 수 있다.
 
+* [async란?](#async)
+* [await란?](#await)
+* [async/await ](#asyncawait-사용-예시)
+
 # async
 
 function 앞에 async 키워드를 붙이면 해당 함수는 반드시 프로미스를 반환하게 된다. 만약, 프로미스가 아닌 값을 반환하더라도
