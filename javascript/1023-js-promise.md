@@ -1,7 +1,7 @@
 # Promise
 
 * [개념](#Promise-개념)
-* [then, catch, finally](#then,-catch,-finally)
+* [then, catch, finally](#then-catch-finally)
 * [사용 예시](#Promise-예제)
 
 # Promise 개념
