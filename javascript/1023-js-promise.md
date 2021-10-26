@@ -66,7 +66,7 @@ promise.finally(f);
 * 데이터 가져오기(fetch 사용)
 
 <b>`fetch()`</b> 함수는 첫 번째 인자로 URL, 두 번째 인자로 Options 객체(생략 가능)를 받으며
-promise 타입의 객체를 반환해서 promise와 함께 사용된다. API 호출이 성공했을 경우 응답 객체(=resposne)은
+promise 타입의 객체를 반환해서 promise와 함께 사용된다. API 호출이 성공했을 경우 응답 객체(=response)는
 resolve, 실패한 경우 예외 객체(=error)를 reject 처리한다.
 
 ```javascript
