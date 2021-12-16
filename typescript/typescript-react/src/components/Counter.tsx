@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
+
+// action 타입 지정하는 type alias 생성
+type Action = { type: "INCREASE" } | { type: "DECREASE" };
+
+function reducer(state: number, action: Action): number {
+  switch (action.type) {
+    case "INCREASE":
+      return state + 1;
+    case "DECREASE":
+      return state - 1;
+    default:
+      throw new Error("Error!");
+  }
+}
 
 function Counter() {
   // state의 타입을 지정할 때 제네릭을 사용해도 되고 생략해도 된다.
   // const [count, setCount] = useState<number>(0);
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
-  const onIncrease = () => {
-    setCount(count + 1);
-  };
-
-  const onDecrease = () => {
-    setCount(count - 1);
-  };
+  const [count, dispatch] = useReducer(reducer, 0);
+  const onIncrease = () => dispatch({ type: "INCREASE" });
+  const onDecrease = () => dispatch({ type: "DECREASE" });
 
   return (
     <div>
