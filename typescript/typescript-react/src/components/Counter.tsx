@@ -3,6 +3,8 @@ import React, { useReducer } from "react";
 // action 타입 지정하는 type alias 생성
 type Action = { type: "INCREASE" } | { type: "DECREASE" };
 
+// 리듀서 함수는 반드시 state 타입을 반환해야 한다.
+// 여기서는 따로 지정한 것이 없고 결과 값이 숫자 증감이기 때문에 number로 지정했다.
 function reducer(state: number, action: Action): number {
   switch (action.type) {
     case "INCREASE":
