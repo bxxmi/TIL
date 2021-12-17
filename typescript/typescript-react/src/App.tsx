@@ -2,6 +2,7 @@
 // import Greetings_useFunction from "./components/Greetings_useFunction";
 // import Counter from "./components/Counter";
 // import MyForm from "./components/MyForm";
+import { SampleProvider } from "./components/ContextSample";
 import ReducerSample from "./components/ReducerSample";
 
 function App() {
@@ -15,7 +16,11 @@ function App() {
   // };
   // return <MyForm onSubmit={onSubmit} />;
 
-  return <ReducerSample />;
+  return (
+    <SampleProvider>
+      <ReducerSample />
+    </SampleProvider>
+  );
 }
 
 export default App;

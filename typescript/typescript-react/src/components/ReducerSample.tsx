@@ -1,47 +1,11 @@
-import React, { useReducer } from "react";
-
-type Color = "red" | "orange" | "blue";
-
-type State = {
-  count: number;
-  text: string;
-  color: Color;
-  isGood: boolean;
-};
-
-type Action =
-  | { type: "SET_COUNT"; count: number }
-  | { type: "SET_TEXT"; text: string }
-  | { type: "SET_COLOR"; color: Color }
-  | { type: "TOGGLE_GOOD" };
-
-// 리듀서 함수는 반드시 state 타입을 반환해야 한다.
-function reducer(state: State, action: Action): State {
-  switch (action.type) {
-    case "SET_COUNT":
-      return { ...state, count: action.count };
-    case "SET_TEXT":
-      return { ...state, text: action.text };
-    case "SET_COLOR":
-      return { ...state, color: action.color };
-    case "TOGGLE_GOOD":
-      return { ...state, isGood: !state.isGood };
-    default:
-      throw new Error("Error!");
-  }
-}
+import React from "react";
+import { useSampleDispatch, useSampleState } from "./ContextSample";
 
 function ReducerSample() {
-  const [state, dispatch] = useReducer(reducer, {
-    count: 0,
-    text: "hello",
-    color: "red",
-    isGood: true,
-  });
+  const state = useSampleState();
+  const dispatch = useSampleDispatch();
 
-  const setCount = () => {
-    dispatch({ type: "SET_COUNT", count: 5 });
-  };
+  const setCount = () => dispatch({ type: "SET_COUNT", count: 5 });
 
   const setText = () => {
     dispatch({ type: "SET_TEXT", text: "bye" });
