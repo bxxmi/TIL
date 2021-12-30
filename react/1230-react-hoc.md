@@ -48,3 +48,16 @@ export default withLoading(Button);
 ```
 
 위 예시와 같이 아주 단순하다. 고차 컴포넌트를 import 하고, Button 컴포넌트를 로딩 컴포넌트로 감싸면 되는 것이다.
+
+<b>`2-1. 고차 컴포넌트를 사용하는 컴포넌트 생성 2번째`</b>
+
+```jsx
+import React from "react";
+import withLoading from "./withLoading";
+
+const Input = () => {
+  return <input defaultValue="Input" />;
+};
+
+export default withLoading(Input);
+```
