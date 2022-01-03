@@ -27,3 +27,18 @@ const color2: Color = "orange"; // able
 const color3: Color = "red"; // able
 const color4: Color = "yellow"; // able
 // const color4: Color = "green"; disable
+
+// type vs enum
+// type은 컴파일 시점에 값을 확인하는 용도로 사용한다.
+// enum은 실제 데이터로, 런타임 시에 실제 값이 들어가게 된다. (문자열이 아닌 실제 지정된 인덱스 값)
+type YesOrNo = "Y" | "N";
+type DayeOfWeek = "월" | "화" | "수" | "목" | "금" | "토" | "일";
+enum DayOfTheWeek {
+  "월",
+  "화",
+  "수",
+  "목",
+  "금",
+  "토",
+  "일",
+}
