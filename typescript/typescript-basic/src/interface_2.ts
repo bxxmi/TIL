@@ -1,5 +1,6 @@
 interface Person {
-  name: string;
+  // name 변수는 읽기 전용 타입이라는 것을 명시함
+  readonly name: string;
   // '?' 키워드를 통해 해당 값이 있을 수도 있고 없을 수도 있음을 나타냄
   age?: number;
 }
