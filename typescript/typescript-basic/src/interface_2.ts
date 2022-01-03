@@ -22,3 +22,60 @@ const expert: Developer = {
   name: "김보미",
   skills: ["javascript", "react"],
 };
+
+// interface 다중 상속
+interface Person extends Country, Gender {
+  phone: number;
+}
+
+// type 다중 상속
+type Person = Country & Gender {
+  phone: number;
+}
+
+// key 설정
+interface OnlyNumberValueObject {
+  [key: string]: number;
+}
+
+// 함수 규격 설정
+type FooFunction = () => string;
+
+interface IGetApi {
+  // (함수의 인자: 인자의 타입) : 함수의 리턴값과 타입
+  (url: string, search?:string): Promise<string>;
+}
+
+type TGetApi = {
+  (url: string, search?:string): Promise<string>;
+}
+
+// 해당 함수 규격을 함수에 적용할 때는 함수 표현식을 써야한다.
+const getApi: IGetApi = (url, search = '') => {
+  return new Promise(resolve => resolve('ok'));
+}
+
+getApi('api/users')
+.then(data => console.log(data));
+
+// 고급 문법 (참고만 하기)
+// 클래스의 경우 인스턴스를 만들기 위해 생성자가 호출된다.
+// 이때, 클래스의 규격과 생성자가 만들어내는 인스턴스의 규격이 미묘하게 다를 수가 있다.
+// 인터페이스를 사용하면 생성자의 타입 규격을 기술할 수 있다. 
+interface IRectConstructor {
+  new (x: number, y: number, width: number, height: number) : IRect;
+}
+
+class Rect implements IRect {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+
+  constructor(x: number, y: number, width: number, height: number) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+  }
+}
